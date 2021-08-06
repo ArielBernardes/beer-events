@@ -9,7 +9,7 @@ const useStyles = makeStyles({
       width: 300,
       height: 360,
       margin: 10,
-      background: 'linear-gradient(45deg, rgba(0,0,0,0.8) 30%, rgba(0,30,0,0.4) 90%)',
+      background: 'linear-gradient(45deg, rgba(0,0,0,0.8) 30%, rgba(0,30,0,0.8) 90%)',
       boxShadow: '10px 10px 26px 2px rgba(0,0,0,0.84)',
     },
     media: {
@@ -62,7 +62,7 @@ const useStyles = makeStyles({
 const Confraternization = () => {
 
     const classes = useStyles();
-    const {removeToConfraternization, confraternizationList} = useContext(ConfraternizationContext);
+    const {removeFromConfraternization, confraternizationList} = useContext(ConfraternizationContext);
     const newList = confraternizationList.filter((beer,index,arr)=> arr.lastIndexOf(beer) === index)
      
     return (
@@ -83,7 +83,7 @@ const Confraternization = () => {
                         </div>
                     </CardContent>
                 </CardContent> 
-                <Button onClick={() => removeToConfraternization(beer)} className={classes.btn} >Remove</Button>
+                <Button onClick={() => removeFromConfraternization(beer)} className={classes.btn} >Remove</Button>
                 
             </Card>)}
         </div>

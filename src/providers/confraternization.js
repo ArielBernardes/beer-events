@@ -10,13 +10,13 @@ export const ConfraternizationProvider = ({children}) => {
         
     }
     
-    const removeToConfraternization = (item) => {
+    const removeFromConfraternization = (item) => {
         const newList = confraternizationList.filter(beer=> beer !== item);
         setConfraternizationList(newList);
     }
 
     return (
-        <ConfraternizationContext.Provider value = {{confraternizationList,addToConfraternization,removeToConfraternization}}>
+        <ConfraternizationContext.Provider value = {{confraternizationList,addToConfraternization,removeFromConfraternization}}>
             {children}
         </ConfraternizationContext.Provider>
     )
