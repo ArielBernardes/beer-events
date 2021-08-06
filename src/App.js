@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import Header from './components/Header';
 import './App.css';
+import Routes from './Routes';
+import { BeerProvider } from './providers/beer-list';
+import { WeddingProvider } from './providers/wedding';
+import { ConfraternizationProvider } from './providers/confraternization';
+import { GraduationProvider } from './providers/graduation';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BeerProvider>
+        <WeddingProvider>
+          <ConfraternizationProvider>
+            <GraduationProvider>
+              <Header />
+              <Routes />
+            </GraduationProvider>
+          </ConfraternizationProvider>
+        </WeddingProvider>
+      </BeerProvider>
     </div>
   );
 }

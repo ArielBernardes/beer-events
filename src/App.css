@@ -1,6 +1,12 @@
 .App {
   text-align: center;
 }
+body {
+  background: url('https://cutewallpaper.org/21/beer-wallpaper-hd/Wall.Cookdiary.net-Beer-Wallpaper-HD-14-1024-X-640-for-.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 
 .App-logo {
   height: 40vmin;
