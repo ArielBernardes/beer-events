@@ -7,6 +7,7 @@ export const ConfraternizationProvider = ({children}) => {
 
     const addToConfraternization = (item) => {
         setConfraternizationList([...confraternizationList, item]);
+        
     }
     
     const removeToConfraternization = (item) => {
@@ -15,7 +16,7 @@ export const ConfraternizationProvider = ({children}) => {
     }
 
     return (
-        <ConfraternizationContext.Provider value = {{confraternizationList, addToConfraternization,removeToConfraternization}}>
+        <ConfraternizationContext.Provider value = {{confraternizationList,addToConfraternization,removeToConfraternization}}>
             {children}
         </ConfraternizationContext.Provider>
     )

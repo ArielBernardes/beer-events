@@ -9,7 +9,8 @@ const useStyles = makeStyles({
       width: 300,
       height: 360,
       margin: 10,
-      background: 'linear-gradient(45deg, rgba(0,0,0,0.5) 30%, #2F7336 95%)',
+      background: 'linear-gradient(45deg, rgba(0,0,0,0.8) 30%, rgba(0,30,0,0.4) 90%)',
+      boxShadow: '10px 10px 26px 2px rgba(0,0,0,0.84)',
     },
     media: {
         height: 200,
@@ -61,25 +62,27 @@ const useStyles = makeStyles({
 const Wedding = () => {
     const classes = useStyles();
     const {removeFromWedding, weddingList} = useContext(WeddingContext);
+    const newList = weddingList.filter((beer,index,arr)=> arr.lastIndexOf(beer) === index);
 
 
     return (
             <div style = {{display:'flex', flexWrap: 'wrap'}} >
-                {weddingList.map(beer => 
+                {newList?.map(beer => 
                 <Card className = { classes.root } key = {beer.id}>
                    
                     <CardContent className = {classes.context}>
                         <img className={classes.media} src = {beer.image_url} alt="Beer"/>
                         <CardContent className = {classes.typo}>
+                            <span>x {weddingList.filter(item => beer.id === item.id).length}</span>
                             <Typography className = {classes.title} variant = 'h6'>{beer.name}</Typography>
                             <Typography component = 'p'>{beer.first_brewed}</Typography>
                             <div className = {classes.description}>{beer.description}</div>
                             <div>
-                            <Typography variant = 'subtitle1'>{beer.volume.value}{beer.volume.unit}</Typography>
+                            <Typography variant = 'subtitle1'>{beer.volume.value} {beer.volume.unit}</Typography>
                             </div>
                         </CardContent>
                     </CardContent> 
-                    <Button onClick={() => removeFromWedding(beer)} className={classes.btn} >Remove from Wedding</Button>
+                    <Button onClick={() => removeFromWedding(beer)} className={classes.btn} >Remove</Button>
                 </Card>)}
             </div>
     )

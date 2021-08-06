@@ -13,7 +13,8 @@ const useStyles = makeStyles({
       width: 300,
       height: 360,
       margin: 10,
-      background: 'linear-gradient(45deg, rgba(0,0,0,0.5) 30%, #2F7336 95%)',
+      background: 'linear-gradient(45deg, rgba(0,0,0,0.8) 30%, rgba(0,30,0,0.3) 90%)',
+      boxShadow: '10px 10px 26px 2px rgba(0,0,0,0.84)',
     },
     media: {
         height: 200,
@@ -84,7 +85,7 @@ const Home = () => {
                             <Typography component = 'p'>{beer.first_brewed}</Typography>
                             <div className = {classes.description}>{beer.description}</div>
                             <div>
-                            <Typography variant = 'subtitle1'>{beer.volume.value}{beer.volume.unit}</Typography>
+                            <Typography variant = 'subtitle1'>{beer.volume.value} {beer.volume.unit}</Typography>
                             </div>
                         </CardContent>
                     </CardContent> 

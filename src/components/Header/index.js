@@ -51,10 +51,7 @@ const Header = () => {
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    console.log(isMobile)
-
     const history = useHistory();
-  
     const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);

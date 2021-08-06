@@ -9,7 +9,8 @@ const useStyles = makeStyles({
       width: 300,
       height: 360,
       margin: 10,
-      background: 'linear-gradient(45deg, rgba(0,0,0,0.5) 30%, #2F7336 95%)',
+      background: 'linear-gradient(45deg, rgba(0,0,0,0.8) 30%, rgba(0,30,0,0.4) 90%)',
+      boxShadow: '10px 10px 26px 2px rgba(0,0,0,0.84)',
     },
     media: {
         height: 200,
@@ -63,15 +64,17 @@ const Graduation = () => {
 
     const classes = useStyles();
     const {removeFromGraduation, graduationList} = useContext(GraduationContext);
+    const newList = graduationList.filter((beer,index,arr) => arr.lastIndexOf(beer) === index)
 
     return (
         <div style = {{display:'flex', flexWrap: 'wrap'}} >
-            {graduationList.map(beer => 
+            {newList?.map(beer => 
             <Card className = { classes.root } key = {beer.id}>
                
                 <CardContent className = {classes.context}>
                     <img className={classes.media} src = {beer.image_url} alt="Beer"/>
                     <CardContent className = {classes.typo}>
+                        x {graduationList.filter(item => beer.id === item.id).length}
                         <Typography className = {classes.title} variant = 'h6'>{beer.name}</Typography>
                         <Typography component = 'p'>{beer.first_brewed}</Typography>
                         <div className = {classes.description}>{beer.description}</div>
@@ -80,7 +83,7 @@ const Graduation = () => {
                         </div>
                     </CardContent>
                 </CardContent> 
-                <Button onClick={() => removeFromGraduation(beer)} className={classes.btn} >Remove from graduation</Button>
+                <Button onClick={() => removeFromGraduation(beer)} className={classes.btn} >Remove</Button>
             </Card>)}
         </div>
 )
