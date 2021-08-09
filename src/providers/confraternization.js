@@ -11,8 +11,8 @@ export const ConfraternizationProvider = ({children}) => {
     }
     
     const removeFromConfraternization = (item) => {
-        const newList = confraternizationList.filter(beer=> beer !== item);
-        setConfraternizationList(newList);
+        const remove = confraternizationList.filter((beer,index,arr)=> arr.indexOf(item) !== index)
+        setConfraternizationList(remove);
     }
 
     return (

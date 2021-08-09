@@ -10,8 +10,8 @@ export const GraduationProvider = ({children}) => {
     }
 
     const removeFromGraduation = (item) => {
-        const newList = graduationList.filter(beer=> beer !== item );
-        setGraduationList(newList);
+        const remove = confraternizationList.filter((beer,index,arr)=> arr.indexOf(item) !== index)
+        setGraduationList(remove);
     }
 
     return (

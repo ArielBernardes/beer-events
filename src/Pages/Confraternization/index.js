@@ -65,6 +65,8 @@ const Confraternization = () => {
     const {removeFromConfraternization, confraternizationList} = useContext(ConfraternizationContext);
     const newList = confraternizationList.filter((beer,index,arr)=> arr.lastIndexOf(beer) === index)
      
+     console.log(confraternizationList)
+     
     return (
         <div style = {{display:'flex', flexWrap: 'wrap'}} >
             {newList?.map(beer => 

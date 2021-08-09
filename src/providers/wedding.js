@@ -10,8 +10,8 @@ export const WeddingProvider = ({children}) => {
     }
     
     const removeFromWedding = (item) => {
-        const newList = weddingList.filter(beer => beer !== item);
-        setWeddingList(newList);
+        const remove = confraternizationList.filter((beer,index,arr)=> arr.indexOf(item) !== index)
+        setWeddingList(remove);
     }
 
     return (

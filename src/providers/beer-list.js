@@ -10,7 +10,6 @@ export const BeerProvider = ({children}) => {
        useEffect( ()=> {
            axios.get('https://api.punkapi.com/v2/beers')
             .then(res => {
-            console.log(res)
             setBeerList(res.data)
             })
             .catch(e=> console.log(e))
